@@ -88,7 +88,7 @@ internal class PageNode : WebNode
                         if (href.Success && Uri.IsWellFormedUriString(href.Value, UriKind.Absolute))
                         {
                             var childAddress = new Uri(href.Value);
-                            if (contained.Any(node => node.address.ToString() == href.Value))
+                            if (contained.Any(node => node.address == childAddress))
                                 continue;
                             
                             if (Uri.Compare(address, childAddress, UriComponents.Host, UriFormat.Unescaped, StringComparison.OrdinalIgnoreCase) != 0)
